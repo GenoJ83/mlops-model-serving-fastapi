@@ -1,0 +1,11 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "MLOps Property Valuation Service",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": { "get": { "summary": "Health Check" } },
+    "/predict": { "post": { "summary": "Predict Property Price" } }
+  }
+}
