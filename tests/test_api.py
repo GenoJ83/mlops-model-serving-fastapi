@@ -1,9 +1,10 @@
 """Test suite for data schemas, drift detector, and FastAPI endpoints."""
 from fastapi.testclient import TestClient
-from src.app.main import app
+from src.app.main import app, get_model
 from src.monitoring.drift_detector import detect_drift
 import numpy as np
 
+get_model()
 client = TestClient(app)
 
 def test_health_check():
