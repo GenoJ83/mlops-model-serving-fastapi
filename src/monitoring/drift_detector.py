@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Dict, Any
 
 class KsDriftDetector:
     @staticmethod
@@ -21,3 +21,8 @@ class KsDriftDetector:
     @staticmethod
     def is_drifted(statistic: float, threshold: float = 0.25) -> bool:
         return statistic >= threshold
+
+def detect_drift(baseline, current, threshold: float = 0.25) -> Dict[str, Any]:
+    stat = KsDriftDetector.compute_ks_statistic(list(baseline), list(current))
+    drifted = KsDriftDetector.is_drifted(stat, threshold=threshold)
+    return {"statistic": stat, "drift_detected": drifted}

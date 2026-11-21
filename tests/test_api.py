@@ -1,3 +1,5 @@
+import pytest
+pytest.importorskip("fastapi")
 """Test suite for data schemas, drift detector, and FastAPI endpoints."""
 from fastapi.testclient import TestClient
 from src.app.main import app, get_model
