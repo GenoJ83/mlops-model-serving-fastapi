@@ -1,5 +1,4 @@
-"""Prometheus metrics: request counter, latency histogram."""
-from prometheus_client import Counter, Histogram
+from typing import Dict, Any
 
-REQUEST_COUNT = Counter("ml_requests_total", "Total ML inference requests", ["endpoint", "status"])
-INFERENCE_LATENCY = Histogram("ml_inference_latency_seconds", "Inference latency in seconds")
+def summarize_drift(metrics: Dict[str, float]) -> Dict[str, Any]:
+    return {"total_features_monitored": len(metrics), "drifted_features": [k for k, v in metrics.items() if v > 0.25]}
